@@ -18,8 +18,6 @@ import {
 } from "@tanstack/react-query";
 import Pay from "./pages/pay/Pay";
 import Success from "./pages/success/Success";
-import { dotenv } from 'dotenv/config';
-
 
 function App() {
   const queryClient = new QueryClient();

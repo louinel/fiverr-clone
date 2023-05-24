@@ -5,10 +5,9 @@ import { Elements } from "@stripe/react-stripe-js";
 import newRequest from "../../utils/newRequest";
 import { useParams } from "react-router-dom";
 import CheckoutForm from "../../components/checkoutForm/CheckoutForm";
-import { dotenv } from 'dotenv/config';
 
 const stripePromise = loadStripe(
-  dotenv.STRIPE_API_KEY
+  import.meta.env.VITE_STRIPE_API_KEY
 );
 
 const Pay = () => {
