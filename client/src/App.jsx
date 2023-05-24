@@ -12,14 +12,25 @@ import Messages from "./pages/messages/Messages";
 import Message from "./pages/message/Message";
 import Add from "./pages/add/Add";
 import Gig from "./pages/gig/Gig";
+import {
+  QueryClient,
+  QueryClientProvider
+} from "@tanstack/react-query";
+import Pay from "./pages/pay/Pay";
+import Success from "./pages/success/Success";
+import { dotenv } from 'dotenv/config';
+
 
 function App() {
+  const queryClient = new QueryClient();
   const Layout = () => {
     return (
       <div className='app'>
-        <Navbar />
-        <Outlet />
-        <Footer />
+        <QueryClientProvider client={queryClient}>
+          <Navbar />
+          <Outlet />
+          <Footer />
+        </QueryClientProvider>
       </div>
     )
   }
@@ -62,16 +73,24 @@ function App() {
           path: "/gig/:id",
           element: <Gig />
         },
+        {
+          path: '/register',
+          element: <Register />
+        },
+        {
+          path: '/login',
+          element: <Login />
+        },
+        {
+          path: '/pay',
+          element: <Pay />
+        },
+        {
+          path: "/success",
+          element: <Success />,
+        },
       ]
     },
-    {
-      path: '/register',
-      element: <Register />
-    },
-    {
-      path: '/login',
-      element: <Login />
-    }
   ])
 
   return <RouterProvider router={router} />
