@@ -22,7 +22,7 @@ const connect = async () => {
     await mongoose.connect(process.env.DB_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      family: 4,
+      // family: 4,
     });
     console.log("Database connected");
   } catch (err) {
